@@ -3,9 +3,11 @@
 namespace College\Http\Controllers;
 
 use College\Course;
+use College\Faculty;
 use College\staffs;
 use College\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class addController extends Controller
 {
@@ -50,18 +52,20 @@ class addController extends Controller
         return view('library.manageBooks');
     }
 
-    public function Booksissue(){
+    public function Booksissue()
+    {
         return view('library.issueBooks');
     }
 
+    public function libraryCard()
+    {
 
+        $res = DB::table('students')->select('students.enrolledDate')->distinct()->get();
 
-
-    public function libraryCard(){
-        return View('library.libraryCard')->with('student', Student::all())->union('staffs', staffs::all());
-       // return view('library.libraryCard')->with('student', Student::all());
+        return view('library.libraryCard')->with('result', $res);
 
     }
+
 
     //
 }

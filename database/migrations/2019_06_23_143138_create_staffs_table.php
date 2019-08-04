@@ -23,6 +23,8 @@ class CreateStaffsTable extends Migration
             $table->integer('contactNumber');
             $table->string('enrolledYear');
             $table->integer('roleId');
+            $table->string('enrolledDate')->nullable();
+
         });
     }
 

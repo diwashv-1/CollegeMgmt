@@ -23,10 +23,11 @@ class CreateStudentsTable extends Migration
             $table->string('fatherName');
             $table->string('motherName')->nullable();
             $table->integer('phoneNumber')->nullable();
-            $table->integer('facultyId')->default('1');
-            $table->integer('courseId')->default('2');
+            $table->integer('facultyId');
+            $table->integer('courseId');
             $table->date('enrolledyear');
             $table->string('email');
+            $table->string('enrolledDate')->nullable();
         });
     }
 

@@ -33,12 +33,20 @@ Route::post('/addCourse', 'addController@addCourse');
 
 Route::get('/issueBooks', 'addController@Booksissue');
 Route::get('/libraryCard', 'addController@libraryCard');
+
+
 Route::get('/libraryIndex', 'addController@libraryIndex');
 
 
+//AJAX
 
 
 
 
 
+
+
+Route::get('/fetchAjaxFaculty', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFaculty');
+
+Route::post('/fetchAjaxCourse', 'AjaxRequest\fetchAJaxRequest@fetchAjaxCourse');
 
