@@ -4,9 +4,7 @@
 
 
 @section('content')
-
     <div>
-
         <div class="card card-default container mt-3">
 
             <div class="card-header">
@@ -14,7 +12,16 @@
             </div>
 
             <div class="card-body">
+                <div class="">
+                    @if(session()->has('success'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert"">
+                        {{session()->get('success')}}
+                        <button type="button" class=" btn btn-danger close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endif
 
+                </div>
 
 
 
@@ -101,11 +108,7 @@
 
             </div>
         </div>
-
-
     </div>
-
-
-    @endsection
+@endsection
 
 

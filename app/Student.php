@@ -19,7 +19,8 @@ class Student extends Model
         'courseId' ,
         'enrolledyear' ,
         'email',
-        'enrolledDate'
+        'enrolledDate',
+        'studentCode'
     ];
 
 

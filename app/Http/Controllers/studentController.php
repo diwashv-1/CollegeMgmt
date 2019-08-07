@@ -3,6 +3,7 @@
 namespace College\Http\Controllers;
 
 use College\Http\Requests\createStudentRequest;
+use College\Membership;
 use College\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -39,17 +40,11 @@ class studentController extends Controller
      */
     public function store(createStudentRequest $request)
     {
-
-
         $enrolledDate = substr($request->std_enro, 0, 4);
-
-
         $image = $request->std_image->store('student', 'public');
-
 //        dd($image);
-
         //dd($request->cou, $request->fac);
-        Student::create([
+     $student =   Student::create([
             'studentName' => $request->std_name,
             'address' => $request->std_add,
             'gender' => $request->std_gend,
@@ -64,11 +59,20 @@ class studentController extends Controller
 
         ]);
 
+     $forMemId = $student->id;
+     $currentDate = date('Y-m-d');
+     $expireDate = date('Y-m-d', strtotime($currentDate.'+365 days'));
 
-        session()->flash('success', 'Student Added Succesfully');
+
+//create Membership for this student
+     Membership::create([
+        'studentId'=> $forMemId,
+         'issuedDate' =>$currentDate,
+         'expiryDate' => $expireDate
+     ]);
+
+        session()->flash('success', 'Student/Library Membership created Succesfully');
         return redirect('/manage');
-        //return redirect(route('home'));
-        //
     }
 
     /**
@@ -90,9 +94,11 @@ class studentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public
-    function edit($id)
+    function edit(Student $student)
     {
 
+
+        return view('administration.manageAll')->with('student', $student);
 
         //
     }
@@ -107,6 +113,11 @@ class studentController extends Controller
     public
     function update(Request $request, $id)
     {
+
+
+
+
+
         //
     }
 

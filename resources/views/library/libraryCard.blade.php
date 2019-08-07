@@ -49,20 +49,26 @@
         </div>
 
 
+    </div>
+
+
+
+    <div class="container mt-5">
         <table class="table table-striped table-sm table-responsive mt-3" id="stdTable">
 
             <thead>
-<tr>
-    <th>Student Name</th>
-    <th>Enrolled year</th>
-    <th> Address</th>
-    <th> Gender</th>
-    <th> Father Name</th>
-    <th>Phone Number</th>
-    <th> Faculty</th>
-    <th>Course</th>
+            <tr>
+                <th>Student Name</th>
+                <th>Enrolled year</th>
+                <th> Address</th>
+                <th> Gender</th>
+                <th> Father Name</th>
+                <th>Phone Number</th>
+                <th> Faculty</th>
+                <th>Course</th>
+                <th>email</th>
 
-</tr>
+            </tr>
             </thead>
 
             <tbody>
@@ -72,7 +78,6 @@
 
 
         </table>
-
 
     </div>
 
@@ -85,8 +90,8 @@
 @section('scripts')
 
     <script>
+        var manageDataTable = $('#stdTable').DataTable();
 
-        $('#stdTable').DataTable();
 
         //fetch Faculty
         $('#enrDate').change(function () {
@@ -141,8 +146,8 @@
         //fetch Student
         $('#courseSelect').change(function () {
 
+            var tableData;
             $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 url: 'fetchAjaxStudent',
                 method: 'post',
                 type: 'json',
@@ -150,14 +155,27 @@
                     "_token": "{{ csrf_token() }}",
                     facId: $('#facultySelect').val(),
                     couId: $('#courseSelect').val()
-
                 },
+                cache: false,
                 success: function (response) {
+//                    console.log(response.result);
+                    $.each(response.result, function (key, value) {
+                        tableData += '<tr><td>' + value.studentName + '</td>';
+                        tableData += '<td>' + value.enrolledyear + '</td>';
+                        tableData += '<td>' + value.address + '</td>';
+                        tableData += '<td>' + value.gender + '</td>';
+                        tableData += '<td>' + value.fatherName + '</td>';
+                        tableData += '<td>' + value.phoneNumber + '</td>';
+                        tableData += '<td>' + value.facultyName + '</td>';
+                        tableData += '<td>' + value.courseName + '</td>';
+                        tableData += '<td>' + value.email + '</td></tr>';
+                    });
+
+                    $('#stdTable tbody').append(tableData);
+
 
                 }
             });
-
-
         });
 
 

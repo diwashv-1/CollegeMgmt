@@ -29,7 +29,10 @@
 
 
         <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
-            <li class="mr-auto ml-3 "><i class="fas fa-plus-circle"></i> ADD</li>
+            <li class="mr-auto ml-3 "><i class="fas fa-plus-circle"></i>
+{{  isset($student) ? 'Edit' : 'Add'   }}
+
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link active h-25" id="student-tab" data-toggle="tab" href="#student" role="tab"

@@ -43,13 +43,12 @@ class BookController extends Controller
     public function store( createAddBookRequest  $request)
     {
 
-               dd($request->all());
 
         Books::create([
 
             'bookName' => $request->bookName,
             'authorName' => $request->authorName,
-            'facultyId' => $request->facultyId,
+            'facultyId' => $request->selectFac,
             'publisher' => $request->publisher,
             'price' => $request->price,
             'entryDate' => $request->entryDate,

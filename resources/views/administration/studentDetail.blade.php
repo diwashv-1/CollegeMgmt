@@ -18,7 +18,7 @@
                 <th>Course</th>
                 <th>Enroller Year</th>
                 <th>Email</th>
-
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -35,6 +35,11 @@
                     <td>{{$students->courseId}}</td>
                     <td>{{$students->enrolledyear}}</td>
                     <td>{{$students->email}}</td>
+                    <td>
+                        <a href="{{route('student.edit', $students->id)}}" class="btn btn-sm btn-success"> Edit</a>
+                    </td>
+
+
                 </tr>
             @endforeach
             </tbody>

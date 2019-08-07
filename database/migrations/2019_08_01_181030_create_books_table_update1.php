@@ -16,7 +16,7 @@ class CreateBooksTableUpdate1 extends Migration
         Schema::table('books', function (Blueprint $table) {
 
             $table->string('publisher');
-            $table->float('price');
+            $table->double('price');
             $table->string('entryDate');
             $table->integer('bookCode');
             $table->integer('bookType');
