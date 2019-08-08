@@ -1,7 +1,5 @@
 <?php
-
 namespace College\Http\Controllers\AjaxRequest;
-
 use College\Course;
 use College\Faculty;
 use Illuminate\Http\Request;
