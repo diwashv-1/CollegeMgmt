@@ -22,10 +22,5 @@ class Student extends Model
         'enrolledDate',
         'studentCode'
     ];
-
-
-
-
-
     //
 }

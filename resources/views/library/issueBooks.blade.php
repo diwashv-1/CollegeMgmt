@@ -100,24 +100,22 @@
         });
 
 
-        $('#studentCode').keypress(function(){
-
+        $('#studentCode').keypress(function () {
 
 
         });
 
 
-
         $('#addBtn').click(function () {
             var data;
-         alert();
-         var studentCode = $('#StdCode').val() ;
-         var bookCode = $('#bookCode').val();
-            if ( studentCode =="" || bookCode =="" ) {
+            alert();
+            var studentCode = $('#StdCode').val();
+            var bookCode = $('#bookCode').val();
+            if (studentCode == "" || bookCode == "") {
                 alert('please Enter Student Code or Book Code');
 
             }
-            if(studentCode && bookCode  ){
+            if (studentCode && bookCode) {
                 $.ajax({
                     url: 'saveIssuedBooksAjax',
                     method: 'post',
@@ -134,6 +132,32 @@
                 //bootstrap Alert;
             }
 
+        });
+
+
+        $('#StdCode').keypress(function () {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                var code = $('#StdCode').val();
+
+                $.ajax({
+                    url: '/fetchAjaxStudentBookDetail',
+                    type: 'post',
+                    dataType : 'json',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        data:code},
+                    success:function(response){
+
+
+
+
+                    }
+
+                });
+
+
+            }
         });
 
     </script>

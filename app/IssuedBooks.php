@@ -11,7 +11,8 @@ class IssuedBooks extends Model
 
         'student_Id',
         'teacher_Id',
-        'Book_Id'
+        'Book_Id',
+        'expire_Date'
     ];
 
 

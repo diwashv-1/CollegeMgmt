@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers;
 
+use College\BookQuantity;
 use College\Books;
 use College\Http\Requests\createAddBookRequest;
 use Illuminate\Http\Request;
@@ -40,11 +41,11 @@ class BookController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store( createAddBookRequest  $request)
+    public function store(createAddBookRequest $request)
     {
 
-
-        Books::create([
+//add Book
+        $book = Books::create([
 
             'bookName' => $request->bookName,
             'authorName' => $request->authorName,
@@ -57,10 +58,20 @@ class BookController extends Controller
             'isbnCode' => $request->isbnCode,
             'quantity' => $request->quantity
         ]);
+
+        $bookId = $book->id;
+        $bookQuantity = $book->quantity;
+
+        //add Dummy
+        BookQuantity::create([
+            'book_id' => $bookId,
+            'quantity' => $bookQuantity
+        ]);
+
+
         session()->flash('success', 'Books Added Succesfully');
         return redirect('/Books');
 
-        //
     }
 
     /**

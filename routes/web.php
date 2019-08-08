@@ -38,6 +38,9 @@ Route::get('/libraryCard', 'addController@libraryCard');
 Route::get('/libraryIndex', 'addController@libraryIndex');
 
 
+
+
+
 //AJAX
 
 
@@ -49,6 +52,8 @@ Route::get('/libraryIndex', 'addController@libraryIndex');
 Route::get('/fetchAjaxFaculty', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFaculty');
 Route::post('/fetchAjaxCourse', 'AjaxRequest\fetchAJaxRequest@fetchAjaxCourse');
 Route::post('/fetchAjaxStudent', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudent');
+route::post('/fetchAjaxStudentBookDetail', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudentBookDetail');
+
 
 //save
 Route::post('/saveIssuedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveAjaxIssuedBooks');

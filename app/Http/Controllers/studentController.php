@@ -4,6 +4,7 @@ namespace College\Http\Controllers;
 
 use College\Http\Requests\createStudentRequest;
 use College\Membership;
+use College\NoBookBlacklist;
 use College\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -44,7 +45,7 @@ class studentController extends Controller
         $image = $request->std_image->store('student', 'public');
 //        dd($image);
         //dd($request->cou, $request->fac);
-     $student =   Student::create([
+        $student = Student::create([
             'studentName' => $request->std_name,
             'address' => $request->std_add,
             'gender' => $request->std_gend,
@@ -55,21 +56,30 @@ class studentController extends Controller
             'courseId' => 1,
             'enrolledyear' => $request->std_enro,
             'email' => $request->std_email,
-            'enrolledDate' => $enrolledDate
+            'enrolledDate' => $enrolledDate,
+            'studentCode' => 222
 
         ]);
 
-     $forMemId = $student->id;
-     $currentDate = date('Y-m-d');
-     $expireDate = date('Y-m-d', strtotime($currentDate.'+365 days'));
-
+        $forMemId = $student->id;
+        $currentDate = date('Y-m-d');
+        $expireDate = date('Y-m-d', strtotime($currentDate . '+365 days'));
 
 //create Membership for this student
-     Membership::create([
-        'studentId'=> $forMemId,
-         'issuedDate' =>$currentDate,
-         'expiryDate' => $expireDate
-     ]);
+        Membership::create([
+            'studentId' => $forMemId,
+            'issuedDate' => $currentDate,
+            'expiryDate' => $expireDate
+        ]);
+
+        //crate no_of_book count for student
+        NoBookBlacklist::create([
+
+            'student_id' => $forMemId,
+             'countBook' => 0,
+            'teacher_id' => 0
+        ]);
+
 
         session()->flash('success', 'Student/Library Membership created Succesfully');
         return redirect('/manage');
@@ -113,9 +123,6 @@ class studentController extends Controller
     public
     function update(Request $request, $id)
     {
-
-
-
 
 
         //
