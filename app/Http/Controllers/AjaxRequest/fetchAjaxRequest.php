@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers\AjaxRequest;
 
+use College\BookCodes;
 use College\Course;
 use College\Faculty;
 use College\Student;
@@ -74,6 +75,7 @@ class fetchAjaxRequest extends Controller
 
 
 
+
         if (isset($result)) {
             return response()->json([
                 'success' => 'success',
@@ -86,4 +88,18 @@ class fetchAjaxRequest extends Controller
     }
 
 
+
+    public function fetchAjaxFurtherBook(Request $request){
+
+        $result = BookCodes::where('book_id', $request->book_id)->select('code','issue')->get();
+
+        return response()->json([
+
+           'msg'=>'success',
+           'result'=>$result
+        ], 200);
+    }
+
+
 }
+

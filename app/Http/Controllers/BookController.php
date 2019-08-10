@@ -6,6 +6,7 @@ use College\BookQuantity;
 use College\Books;
 use College\Http\Requests\createAddBookRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -16,10 +17,15 @@ class BookController extends Controller
      */
     public function index()
     {
+//available quantity name same and need to be inserted later ('book_quantities.quantity')
 
-        return view('library.addBook');
+        $result = DB::table('books')
+            ->join('book_quantities', 'book_quantities.book_id','=','books.id' )
+            ->select('books.*')
+            ->get();
 
 
+        return view('library.addBook')->with('result', $result);
         //
     }
 
