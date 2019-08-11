@@ -10,7 +10,8 @@ class NoBookBlacklist extends Model
 
         'student_id',
         'teacher_id',
-        'countBook'
+        'countBook',
+        'blackList'
 
     ];
 

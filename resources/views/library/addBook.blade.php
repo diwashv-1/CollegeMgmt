@@ -191,12 +191,9 @@
             var name = $(this).closest('tr').find("td:eq(0)").text();
 
             $('#BookCode').val(name);
-            $('#BookCode').attr('data',id);
+            $('#BookCode').attr('data', id);
 
-
-
-
-
+            // window.location.reload(true);
 
 
             $.ajax({
@@ -213,8 +210,6 @@
                     var tableData;
 
 
-                    $("#addBookTable").load(window.location + " #addBookTable");
-
                     $.each(response.result, function (k, v) {
 
                         tableData += '<tr> <td>' + sn + '</td>';
@@ -225,15 +220,11 @@
                     });
                     $('#addBookTable tbody').append(tableData);
                     $('#addBookTable').dataTable({
-                       responsive:true
+                        responsive: true
                     });
-
-
-
                 },
 
-                error: function () {
-                }
+
             });
         });
 
@@ -252,16 +243,28 @@
 
                         "_token": "{{ csrf_token() }}",
                         bookId: id,
-                        bookCode: issueCode
+                        code: issueCode
                     },
                     success: function (result) {
-                        $.each(result.result, function (k, v) {
-                            console.log(v.code);
-                        });
                         alert('yes  ');
-                    }
+                        $('#issueCode').val('');
 
-                });
+                    },
+
+
+                    error: function (errors) {
+                        $.each(errors, function (k, v) {
+                            $.each(v.errors, function (k, v) {
+                                console.log(k);
+                                alert(v);
+                            });
+
+                        });
+
+
+                    }
+                })
+                ;
 
             } else {
                 alert('Issue Code is required');

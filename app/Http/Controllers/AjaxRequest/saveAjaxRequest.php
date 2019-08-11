@@ -7,6 +7,7 @@ use College\BookQuantity;
 use College\Http\Resources\human;
 use College\IssuedBooks;
 use College\NoBookBlacklist;
+use College\RecieveBooks;
 use Illuminate\Http\Request;
 use College\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -27,28 +28,21 @@ class saveAjaxRequest extends Controller
         ]);
 
         $errorMsg = [];
-
         $currentDate = date('Y-m-d');
         $expireDate = date('Y-m-d', strtotime($currentDate . '+30 days'));
 
         $resultData = $this->stdCodeBookCode($request->stdCode, $request->bookCode);
 
-        /*foreach($student as $res){
-            dd($res->id);
-        }*/
-        /*   without above function
-                $stdId = $student[0]->id;
-                $bookId = $book[0]->id;*/
 
         $stdId = $resultData[0]->id;
-        $bookId = $resultData[1]->id;
+        $bookCodesId = $resultData[1]->id;
+//        dd($bookCodesId);
 
+        $bookCodes = BookCodes::where('id', $bookCodesId)->first();
 
-        $bookQuantity = BookQuantity::where('Book_Id', $bookId)->first();
-
+        // dd($bookCodes);
+        $bookQuantity = BookQuantity::where('Book_Id', $bookCodes->book_id)->first();
         $forNoBook = NoBookBlacklist::where('student_id', $stdId)->first();
-
-//        dd($forNoBook);
 
         if (isset($forNoBook)) {
             if ($forNoBook->countBook == 3) {
@@ -58,15 +52,18 @@ class saveAjaxRequest extends Controller
 
             } elseif ($forNoBook->countBook < 3) {
 
-                if ($bookQuantity->quantity > 0) {
+                if ($bookQuantity->quantity > 0 && $bookCodes->issue < 1) {
 
                     $forNoBook->increment('countBook', 1);
                     $bookQuantity->decrement('quantity', 1);
+                    $bookCodes->update(['issue'=> 1]);
+
                     IssuedBooks::create([
                         'student_Id' => $stdId,
                         'teacher_Id' => 0,
-                        'Book_Id' => $bookId,
+                        'Book_Id' => $bookCodes->id,
                         'expire_Date' => $expireDate,
+                        'recieved'=> 0
                     ]);
                     goto success;
                 } else {
@@ -80,15 +77,19 @@ class saveAjaxRequest extends Controller
                 'student_id' => $stdId,
                 'teacher_id' => 0,
                 'countBook' => 1,
+                'blackList' => 0
             ]);
 
             $bookQuantity->decrement('quantity', 1);
             IssuedBooks::create([
                 'student_Id' => $stdId,
                 'teacher_Id' => 0,
-                'Book_Id' => $bookId,
+                'Book_Id' => $bookCodesId,
                 'expire_Date' => $expireDate,
+                'recieved'=> 0
             ]);
+            $bookCodes->increment('issue', 1);
+
 
             goto success;
         }
@@ -112,17 +113,75 @@ class saveAjaxRequest extends Controller
 
     public function saveRecievedBooksAjax(Request $request)
     {
-        $this->validate(request(), [
+        $this->validate($request, [
 
         ]);
 
 
         $resultData = $this->stdCodeBookCode($request->stdCode, $request->bookCode);
 
-        dd($resultData);
+        //dd($resultData);
 
         $stdId = $resultData[0]->id;
-        $bookId = $resultData[1]->id;
+        $bookCodesId = $resultData[1]->id;
+
+
+        $bookCodes = BookCodes::where('id', $bookCodesId)->first();
+
+        $bookQuantity = BookQuantity::where('Book_Id', $bookCodes->book_id)->first();
+
+        $forNoBook = NoBookBlacklist::where('student_id', $stdId)->first();
+
+
+        $Issued = IssuedBooks::where('student_id', $stdId)->where('Book_id', $bookCodesId)->first();
+
+
+        $currentDate = date('Y-m-d');
+
+        if ($currentDate > $Issued->expire_Date) {
+            RecieveBooks::create([
+               'issue_id' => $Issued->id,
+                'returnedDate' => $currentDate
+            ]);
+            $bookQuantity->increment('quantity', 1);
+            $bookCodes->update([
+                'issue'=> 0
+            ]);
+            $forNoBook->increment('blackList',1);
+            $Issued->update([
+                'recieved'=> 1
+            ]);
+        }
+
+        else{
+            RecieveBooks::create([
+                'issue_id' => $Issued->id,
+                'returnedDate' => $currentDate
+            ]);
+
+            $bookQuantity->increment('quantity', 1);
+            $bookCodes->update([
+                'issue'=>0
+
+            ]);
+            $forNoBook->decrement('countBook', 1);
+            $Issued->update([
+                'recieved'=> 1
+            ]);
+
+
+
+        }
+
+
+        return response()->json([
+           'msg'=> 'success Recieved Succesfully'
+
+
+        ]);
+
+
+
     }
 
 
@@ -133,8 +192,8 @@ class saveAjaxRequest extends Controller
         $student = DB::table('students')
             ->where('studentCode', '=', $stdCode)
             ->select('id')->first();
-        $book = Db::table('books')
-            ->where('bookCode', $bookCode)
+        $book = Db::table('book_codes')
+            ->where('code', $bookCode)
             ->select('id')->first();
 
         array_push($data, $student, $book);
@@ -145,16 +204,21 @@ class saveAjaxRequest extends Controller
 
     public function saveFurtherBooksAjax(Request $request)
     {
-        $result =  BookCodes::create([
+        $this->validate($request, [
+            'code' => 'required|unique:book_codes'
+        ]);
 
-            'book_id'=>$request->bookId,
-            'code' => $request->bookCode
+
+        $result = BookCodes::create([
+
+            'book_id' => $request->bookId,
+            'code' => $request->code
         ]);
 
 
         return response()->json([
-            'msg'=>'success',
-            'result' =>$result
+            'msg' => 'success',
+            'result' => $result
         ], 200);
     }
 }

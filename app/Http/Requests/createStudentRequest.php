@@ -31,7 +31,8 @@ class createStudentRequest extends FormRequest
             'std_email'=> 'required|email|unique:students,email',
             'std_num'=> 'required',
             'std_image'=> 'required',
-            'std_fath'=> 'required'
+            'std_fath'=> 'required',
+            'studentCode' =>'required|unique:students,studentCode'
 
         ];
     }

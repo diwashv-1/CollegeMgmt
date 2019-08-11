@@ -108,42 +108,42 @@
                 <div class="" id="messagePopUp"></div>
                 <div class="row">
 
-                        @csrf
+                    @csrf
 
-                        <div class="form-group row col-sm-4">
-                            <label for="Student Code" class="col-sm-4 col-form-label">Student Code :</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" id="rcvStdCode" placeholder="Student Code">
-                            </div>
+                    <div class="form-group row col-sm-4">
+                        <label for="Student Code" class="col-sm-4 col-form-label">Student Code :</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="rcvStdCode" placeholder="Student Code">
                         </div>
-
-                        <div class="form-group row col-sm-4">
-                            <label for="Book Code" class="col-sm-4 col-form-label">Book Code :</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" id="rcvBookCode" placeholder="Book Code">
-                            </div>
-                        </div>
-                        <div class="form-group row col-sm-4">
-                            <label for="Isbn Code" class="col-sm-4 col-form-label">ISBN Code :</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="rcvIsbnCOde" placeholder="ISBN Code">
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn-sm btn-info float-right" id="addRcvBtn" ><span> <i
-                                            class="fas fa-plus-circle"></i> Add </span></button>
-                        </div>
-
                     </div>
 
-                    <div class="col-md-8 container mt-5">
-
+                    <div class="form-group row col-sm-4">
+                        <label for="Book Code" class="col-sm-4 col-form-label">Book Code :</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="rcvBookCode" placeholder="Book Code">
+                        </div>
                     </div>
+                    <div class="form-group row col-sm-4">
+                        <label for="Isbn Code" class="col-sm-4 col-form-label">ISBN Code :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="rcvIsbnCOde" placeholder="ISBN Code">
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-info float-right" id="addRcvBtn"><span> <i
+                                        class="fas fa-plus-circle"></i> Add </span></button>
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 container mt-5">
+
                 </div>
             </div>
-
-
         </div>
+
+
+    </div>
     </div>
 @endsection
 
@@ -186,6 +186,18 @@
                     },
                     success: function () {
                         $('#bookCode').val('');
+                    },
+
+
+                    error: function () {
+                        $.each(errors, function (k, v) {
+                            $.each(v.errors, function (k, v) {
+                                console.log(k);
+                                alert(v);
+                            });
+
+
+                        });
                     }
                 });
                 //bootstrap Alert;
@@ -266,18 +278,24 @@
 
 
                         //$('#bookCode').val('');
+                    },
+                    error: function () {
+
+                        $.each(errors, function (k, v) {
+                            $.each(v.errors, function (k, v) {
+                                console.log(k);
+                                alert(v);
+                            });
+
+                        });
+
+
                     }
                 });
                 //bootstrap Alert;
             }
 
         });
-
-
-
-
-
-
 
 
     </script>
