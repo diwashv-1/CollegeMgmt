@@ -1,6 +1,7 @@
 <?php
 
 namespace College;
+use College\IssuedBooks;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,4 +24,24 @@ class Student extends Model
         'studentCode'
     ];
     //
+
+
+
+
+    public function books(){
+        return $this-> hasMany('College\IssuedBooks', 'student_id');
+    }
+
+    public function issue(){
+
+        return $this->hasManyThrough(
+            'College\RecieveBooks',
+            'College\IssuedBooks',
+            'student_id',
+            'issue_id');
+
+
+    }
+
+
 }

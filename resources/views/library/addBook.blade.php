@@ -186,6 +186,21 @@
 @section('scripts')
 
     <script>
+
+        $('#myModal').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+        $('#xx').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+        $('#clos').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+
+
+
+
+
         $('.bookBtn').click(function () {
             var id = $(this).attr('data');
             var name = $(this).closest('tr').find("td:eq(0)").text();
@@ -208,7 +223,6 @@
                 success: function (response) {
                     var sn = 1;
                     var tableData;
-
 
                     $.each(response.result, function (k, v) {
 

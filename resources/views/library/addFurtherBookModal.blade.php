@@ -1,11 +1,11 @@
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <div class="modal-header h-25">
                 <h4 class="text-primary">Add Book's Code</h4>
-                <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close text-danger" id="xx" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

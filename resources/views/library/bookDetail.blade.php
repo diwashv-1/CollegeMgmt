@@ -42,7 +42,7 @@
                     {{--{{ $row->quantity !==  0 ?  'Available'  : 'Not Available'   }}
 --}}
                     <?php
-                    if ($row->quantity !== 0) {
+                    if ( $row->quantity != 0) {
                         $res = '<div class="badge badge-success w-100"> Available </div>' ;
                             echo ($res);
                         } else {
@@ -70,7 +70,6 @@
 
 
 @section('scripts')
-    1
     <script>
 
         $(document).ready(function () {

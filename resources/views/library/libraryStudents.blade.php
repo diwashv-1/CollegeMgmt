@@ -3,9 +3,7 @@
 @section('content')
 
 
-
     <div class="container-fluid mt-3">
-
         <div class="form-row">
             <div class="col-sm-2">
                 <label class="mt-2">Enrolled Date:</label>
@@ -33,7 +31,12 @@
                     <option value="">
                         SELECT FACULTY
                     </option>
+                    @foreach($faculty as $fac)
+                        <option value="{{$fac->id}}">{{$fac->facultyName}}</option>
+                    @endforeach
+
                 </select>
+
             </div>
 
             <div class="col-sm-2 ">
@@ -45,13 +48,15 @@
                     <option value="">
                         SELECT Course
                     </option>
+                    @foreach($course as $courses)
+                        <option value="{{$courses->id}}">{{$courses->courseName}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
 
 
     </div>
-
 
 
     <div class="container mt-5">
@@ -68,11 +73,17 @@
                 <th> Faculty</th>
                 <th>Course</th>
                 <th>email</th>
-
             </tr>
             </thead>
-
             <tbody>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
 
 
             </tbody>
@@ -99,50 +110,12 @@
             $('#facultySelect').attr('disabled', false);
             var option;
 
-            $.ajax({
-                url: 'fetchAjaxFaculty',
-                method: 'get',
-                type: 'json',
-                data: {
-                    "_token": "{{ csrf_token() }}"
-                },
-                success: function (response) {
-                    $.each(response.result, function (k, v) {
-                        option += '<option value= "' + v.id + ' " >' + v.facultyName + '</option>';
-
-                    });
-                    $('#facultySelect').append(option);
-                }
-            });
         });
 
 
         //fetch COurse
         $('#facultySelect').change(function () {
             $('#courseSelect').attr('disabled', false);
-
-            var option;
-
-            $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: 'fetchAjaxCourse',
-                method: 'post',
-                type: 'json',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    id: $('#facultySelect').val()
-                },
-                success: function (response) {
-                    $.each(response.res, function (k, v) {
-                        option += '<option value= "' + v.id + ' " >' + v.courseName + '</option>';
-                    });
-
-                    $('#courseSelect').append(option);
-
-                }
-            });
-
-
 
         });
 
@@ -152,36 +125,8 @@
 
             var tableData;
             var enrYear = $('#enrDate').val();
-            $.ajax({
-                url: 'fetchAjaxStudent',
-                method: 'post',
-                type: 'json',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    facId: $('#facultySelect').val(),
-                    couId: $('#courseSelect').val(),
-                    enrYear: $('#enrDate').val(),
-                },
-                cache: false,
-                success: function (response) {
-//                    console.log(response.result);
-                    $.each(response.result, function (key, value) {
-                        tableData += '<tr><td>' + value.studentName + '</td>';
-                        tableData += '<td>' + value.enrolledyear + '</td>';
-                        tableData += '<td>' + value.address + '</td>';
-                        tableData += '<td>' + value.gender + '</td>';
-                        tableData += '<td>' + value.fatherName + '</td>';
-                        tableData += '<td>' + value.phoneNumber + '</td>';
-                        tableData += '<td>' + value.facultyName + '</td>';
-                        tableData += '<td>' + value.courseName + '</td>';
-                        tableData += '<td>' + value.email + '</td></tr>';
-                    });
-
-                    $('#stdTable tbody').append(tableData);
 
 
-                }
-            });
         });
 
     </script>

@@ -38,6 +38,7 @@ class saveAjaxRequest extends Controller
         $bookCodesId = $resultData[1]->id;
 //        dd($bookCodesId);
 
+
         $bookCodes = BookCodes::where('id', $bookCodesId)->first();
 
         // dd($bookCodes);

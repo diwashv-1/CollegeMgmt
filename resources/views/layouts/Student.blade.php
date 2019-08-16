@@ -157,7 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="/img/boy.png" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Admin</a>
+                    <a href="#" class="d-block">Student </a>
                 </div>
             </div>
 
@@ -175,27 +175,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+
+
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="fas fa-circle nav-icon"></i>
-                                    <p>Active Page</p>
-                                </a>
-                            </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
-                                    <p>Inactive Page</p>
+                                    <p>Mail</p>
                                 </a>
                             </li>
                         </ul>
+
                     </li>
+
 
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link ">
                             <i class="fas fa-chart-pie"></i>
                             <p>
-                                Administration
+                                Examination
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -203,38 +201,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="/manage" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
-                                    <p>Manage</p>
+                                    <p>Exam Dashboard</p>
                                 </a>
                             </li>
 
                             <li class="nav-item ml-2">
-                                <a href="" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fas fa-cash-register mr-1"></i>
-                                    <p class="ml-1">Manage Fees</p>
+                                    <p class="ml-1"> Exam</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('student.index')}}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fas fa-user-graduate ml-1"></i>
-                                    <p class="ml-3">Manage Student</p>
+                                    <p class="ml-3">Submit Assignment</p>
                                 </a>
                             </li>
 
-
-                            <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="fas fa-circle nav-icon"></i>
-                                    <p>Manage course</p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a href="{{route('staff.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Manage Staffs</p>
-                                </a>
-                            </li>
 
                         </ul>
                     </li>
@@ -250,73 +233,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/libraryIndex" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fas fa-book-open ml-1"></i>
                                     <p class="ml-2">Lib Dashboard</p>
                                 </a>
 
-                                <a href="{{route('Books.index')}}" class="nav-link">
-                                    <i class="fas fa-book ml-1"></i>
-                                    <p class="ml-2">Manage Books</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="/issueBooks" class="nav-link">
-                                    <i class="fas fa-align-justify ml-1"></i>
-                                    <p class="ml-2">Issue Books</p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a href="/libraryCard" class="nav-link">
-                                    <i class="fas fa-id-card ml-1 "></i>
-                                    <p class="ml-2">Library Card</p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a href="{{route('library/students')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Manage Students</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link ">
-                            <i class="fas fa-book"></i>
-                            <p>
-                                Account
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
                                 <a href="" class="nav-link">
-                                    <i class="fas fa-book-open ml-1"></i>
-                                    <p class="ml-2">Invoice Geerate</p>
+                                    <i class="fas fa-book ml-1"></i>
+                                    <p class="ml-2">Isuued Books</p>
                                 </a>
-
                             </li>
+
 
                         </ul>
                     </li>
 
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Simple Link
-                                <span class="right badge badge-danger">New</span>
-                            </p>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

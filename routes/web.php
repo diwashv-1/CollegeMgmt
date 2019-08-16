@@ -12,23 +12,55 @@
 */
 
 Route::get('/', function () {
+
+    $std = \College\Student::find(13);
+
+//    $res = $std->books()->get();*/
+
+    $res = $std->issue()->get();
+    dd($res);
+
     return view('welcome');
 });
 
+
 Auth::routes();
+
+Route::get('/logout', function(){
+return  Auth::logout();
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('student', 'studentController');
+Route::resource('student', 'studentController')->middleware('auth');
 
 Route::resource('staff', 'StaffController');
+
+
+Route::get('/library/students', 'HomeController@libraryStudents')->name('library/students');
+
+
+
+Route::get('/checkLibStudents',[
+    'uses'=> 'fetchLibraryDetail@checkLibStudents',
+    'as'=> 'manageStudents',
+    ]);
+
+Route::get('/fetchLibraryDetail/{id}', [
+        'uses'=> 'fetchLibraryDetail@fetchLibDetail',
+        'as' =>'fetchLibraryDetail',
+]);
+
+
 
 
 Route::resource('Books', 'BookController');
 
 
 Route::get('/manage', 'addController@index');
+
 Route::post('/addCourse', 'addController@addCourse');
 
 Route::get('/issueBooks', 'addController@Booksissue');

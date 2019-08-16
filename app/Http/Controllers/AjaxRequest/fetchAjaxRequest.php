@@ -41,12 +41,17 @@ class fetchAjaxRequest extends Controller
     {
         $this->validate(request(), [
             'facId' => 'required',
-            'couId' => 'required'
+            'couId' => 'required',
+            'enrYear' => 'required'
         ]);
+
+
         $result = DB::table('students')
             ->join('faculties', 'faculties.id', '=', 'students.facultyId')
             ->join('courses', 'courses.Id', '=', 'students.courseId')
-            ->select('students.*', 'faculties.facultyName', 'courses.courseName')->where('students.courseId', '=', $request->couId)
+            ->select('students.*', 'faculties.facultyName', 'courses.courseName')
+            ->where('students.enrolledDate', '=', $request->enrYear)
+            ->where('students.courseid',$request->couId)
             ->get();
 
 

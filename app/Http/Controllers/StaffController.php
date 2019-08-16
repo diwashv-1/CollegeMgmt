@@ -18,8 +18,6 @@ class StaffController extends Controller
     {
         return view('administration.staffDetail')->with('staff', staffs::all());
 
-
-
         //
     }
 
