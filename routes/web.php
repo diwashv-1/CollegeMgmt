@@ -26,49 +26,46 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/logout', function(){
-return  Auth::logout();
+Route::get('/logout', function () {
+    return Auth::logout();
 });
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('student', 'studentController')->middleware('auth');
-
-Route::resource('staff', 'StaffController');
-
-
-Route::get('/library/students', 'HomeController@libraryStudents')->name('library/students');
+Route:: group(['middleware' => ['auth', 'admin']], function () {
+    Route::resource('student', 'studentController');
+    Route::resource('staff', 'StaffController');
 
 
+    Route::get('/library/students', 'HomeController@libraryStudents')->name('library/students');
 
-Route::get('/checkLibStudents',[
-    'uses'=> 'fetchLibraryDetail@checkLibStudents',
-    'as'=> 'manageStudents',
+
+    Route::get('/checkLibStudents', [
+        'uses' => 'fetchLibraryDetail@checkLibStudents',
+        'as' => 'manageStudents',
     ]);
 
-Route::get('/fetchLibraryDetail/{id}', [
-        'uses'=> 'fetchLibraryDetail@fetchLibDetail',
-        'as' =>'fetchLibraryDetail',
-]);
+    Route::get('/fetchLibraryDetail/{id}', [
+        'uses' => 'fetchLibraryDetail@fetchLibDetail',
+        'as' => 'fetchLibraryDetail',
+    ]);
 
 
+    Route::resource('Books', 'BookController');
 
 
-Route::resource('Books', 'BookController');
+    Route::get('/manage', 'addController@index');
 
+    Route::post('/addCourse', 'addController@addCourse');
 
-Route::get('/manage', 'addController@index');
+    Route::get('/issueBooks', 'addController@Booksissue');
+    Route::get('/libraryCard', 'addController@libraryCard');
 
-Route::post('/addCourse', 'addController@addCourse');
+    Route::get('/libraryIndex', 'addController@libraryIndex');
 
-Route::get('/issueBooks', 'addController@Booksissue');
-Route::get('/libraryCard', 'addController@libraryCard');
-
-
-Route::get('/libraryIndex', 'addController@libraryIndex');
-
+});
 
 //AJAX
 
