@@ -27,6 +27,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/logout', function () {
+
     return Auth::logout();
 });
 
@@ -35,6 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route:: group(['middleware' => ['auth', 'admin']], function () {
+
     Route::resource('student', 'studentController');
     Route::resource('staff', 'StaffController');
 
@@ -83,3 +85,14 @@ Route::post('/saveIssuedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveAjaxIssuedB
 Route::post('/saveRecievedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveRecievedBooksAjax');
 
 Route::post('/saveFurtherBook', 'AjaxRequest\saveAJaxRequest@saveFurtherBooksAjax');
+
+
+
+
+
+Route::get('bookDetailT', [
+
+    'uses'=> 'teacher\LibraryController@bookIndex',
+    'as'=>'bookDetailT',
+
+]);
