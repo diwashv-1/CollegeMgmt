@@ -25,6 +25,7 @@ class CreateAnswersTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *

@@ -11,6 +11,8 @@ class CreateQuestionsTable extends Migration
      *
      * @return void
      */
+
+
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
@@ -22,11 +24,8 @@ class CreateQuestionsTable extends Migration
             $table->timestamps();
             $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-
-
         });
     }
-
     /**
      * Reverse the migrations.
      *
