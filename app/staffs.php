@@ -14,9 +14,14 @@ class staffs extends Model
         'staffImage',
         'contactNumber',
         'enrolledYear',
-        'roleId'
+        'roleId',
+        'email',
+        'staffCode'
+
 
 ];
+
+
 
 
     public  function subjects(){

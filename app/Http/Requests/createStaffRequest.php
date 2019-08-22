@@ -28,7 +28,7 @@ class createStaffRequest extends FormRequest
             'sta_add'=>'required',
             'sta_image'=>'required',
             'sta_enro'=>'required',
-            'sta_gend'=>'required'
+            'sta_gend'=>'required',
 
         ];
     }

@@ -50,6 +50,14 @@
                 </div>
             </div>
 
+            <div class="form-group col-lg-4">
+                <label>Email</label>
+                <input type="email" name="staff_email" class="form-control">
+
+            </div>
+
+
+
             <div class="col-md-3" style="margin-top: 10px;">
                 <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-plus-circle"> </i>
                     Save Changes

@@ -3,9 +3,12 @@
 namespace College\Http\Controllers;
 
 use College\Http\Requests\createStaffRequest;
+use College\Membership;
 use College\StaffRole;
 use College\staffs;
+use College\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StaffController extends Controller
 {
@@ -37,13 +40,13 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(createStaffRequest $request)
+    public function store(Request $request)
     {
 
-//dd($request->all());
+
         $image = $request->sta_image->store('staffs', 'public');
 
-        staffs::create([
+        $staff = staffs::create([
 
             'staffName'=> $request->sta_name,
             'staffGender' => $request->sta_gend,
@@ -52,7 +55,31 @@ class StaffController extends Controller
             'contactNumber'=> $request ->sta_num,
             'enrolledYear'=> $request -> sta_enro,
             'roleId'=> 2,
+            'email'=> $request-> staff_email,
+            'staffCode' => 220,
+        ]);
 
+
+        $currentDate = date('Y-m-d');
+        $expireDate = date('Y-m-d', strtotime($currentDate . '+365 days'));
+
+
+        Membership::create([
+            'teacheId' => $staff->id,
+            'issuedDate'=> $currentDate,
+            'expiryDate' => $expireDate,
+
+        ]);
+
+
+
+        User::create([
+            'name'=>$request->sta_name,
+            'password' =>Hash::make( $request->sta_num),
+            'email'=> $request->staff_email,
+            'staffs_id' => $staff->id,
+            'student_id' => 0,
+            'role_id'=>$staff->roleId,
         ]);
 
 

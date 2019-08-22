@@ -11,24 +11,18 @@ class QuestionController extends Controller
 {
     //
 
-    public function prepareQuestion(){
+    public function prepareQuestion()
+    {
 
-/*$email = Auth::user()->teacher_id;
+        $email = Auth::user()->email;
 
-$teacherId = staffs::where('emai')
+//        dd($email);
 
-*/
-
+        $teacherId = staffs::where('email', $email)->select('id', 'staffCode')->first();
 
         return view('teacher.question');
 
-
-
-
-
     }
-
-
 
 
 }
