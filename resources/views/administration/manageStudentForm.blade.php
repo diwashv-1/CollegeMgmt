@@ -48,10 +48,11 @@
                 <label > Faculty Slect:</label>
                 <select id="fac" name="fac" class="form-control">
                     <option value="">~~~~SELECT~~~~</option>
-
-
-
+                    @foreach($faculty as $key => $value)
+                        <option value="{{$key}}"> {{$value}}  </option>
+                    @endforeach
                 </select>
+                <div class="text-danger"> {{$errors->first('fac')}}  </div>
 
             </div>
 
@@ -59,11 +60,14 @@
                 <label > Course Select:</label>
                 <select id="cou" name="cou" class="form-control" placeholder=" ">
                     <option value="" class="">~~~~~Select Course~~~~~</option>
-
-
+                    @foreach($course as $key => $value)
+                        <option value="{{$key}}">{{$value}}  </option>
+                        @endforeach
                 </select>
+                <div class="text-danger"> {{$errors->first('cou')}}  </div>
             </div>
         </div>
+
 
         <div class="form-row">
             <div class="form-group col-md-2">

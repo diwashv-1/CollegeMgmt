@@ -55,9 +55,6 @@
                     Save Changes
                 </button>
             </div>
-    </div>
-
     </form>
-
 </div>
 </div>

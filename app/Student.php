@@ -9,7 +9,6 @@ class Student extends Model
 {
 
     protected $fillable =[
-
         'studentName',
         'address',
         'gender',

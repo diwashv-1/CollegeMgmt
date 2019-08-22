@@ -51,7 +51,8 @@ class StaffController extends Controller
             'staffImage'=> $image,
             'contactNumber'=> $request ->sta_num,
             'enrolledYear'=> $request -> sta_enro,
-            'roleId'=> 1
+            'roleId'=> 2,
+
         ]);
 
 

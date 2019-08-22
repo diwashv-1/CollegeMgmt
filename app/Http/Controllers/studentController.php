@@ -6,6 +6,7 @@ use College\Http\Requests\createStudentRequest;
 use College\Membership;
 use College\NoBookBlacklist;
 use College\Student;
+use College\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,13 +17,13 @@ class studentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->middleware('auth');
 
 
     }
-
 
 
     public function index()
@@ -50,6 +51,8 @@ class studentController extends Controller
      */
     public function store(createStudentRequest $request)
     {
+
+
         $enrolledDate = substr($request->std_enro, 0, 4);
         $image = $request->std_image->store('student', 'public');
 //        dd($image);
@@ -61,8 +64,8 @@ class studentController extends Controller
             'studentImage' => $image,
             'fatherName' => $request->std_fath,
             'phoneNumber' => $request->std_num,
-            'facultyId' => 1,
-            'courseId' => 1,
+            'facultyId' => $request->fac,
+            'courseId' => $request->cou,
             'enrolledyear' => $request->std_enro,
             'email' => $request->std_email,
             'enrolledDate' => $enrolledDate,
@@ -85,8 +88,17 @@ class studentController extends Controller
         NoBookBlacklist::create([
 
             'student_id' => $forMemId,
-             'countBook' => 0,
-            'teacher_id' => 0
+            'countBook' => 0,
+            'teacher_id' => 0,
+            'blackList' => 0,
+        ]);
+
+        //create User Registration
+
+        User::create([
+            'name' => $request->std_name,
+            'password' => $request->std_num,
+            'role_id' => 3
         ]);
 
 

@@ -79,7 +79,6 @@ Route::post('/fetchAjaxStudent', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudent'
 route::post('/fetchAjaxStudentBookDetail', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudentBookDetail');
 route::post('/fetchBookCode', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFurtherBook');
 
-
 //save
 Route::post('/saveIssuedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveAjaxIssuedBooks');
 Route::post('/saveRecievedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveRecievedBooksAjax');
@@ -88,11 +87,13 @@ Route::post('/saveFurtherBook', 'AjaxRequest\saveAJaxRequest@saveFurtherBooksAja
 
 
 
-
-
 Route::get('bookDetailT', [
 
     'uses'=> 'teacher\LibraryController@bookIndex',
     'as'=>'bookDetailT',
+]);
 
+Route::get('question',[
+    'uses' => 'teacher\QuestionController@prepareQuestion',
+    'as' => 'prepareQuestion'
 ]);

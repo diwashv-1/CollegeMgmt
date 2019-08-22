@@ -24,16 +24,15 @@ class createStudentRequest extends FormRequest
     public function rules()
     {
         return [
-
             'std_name' => 'required',
-            'std_add'=> 'required',
-            'std_gend'=> 'required',
-            'std_email'=> 'required|email|unique:students,email',
-            'std_num'=> 'required',
-            'std_image'=> 'required',
-            'std_fath'=> 'required',
-            'studentCode' =>'required|unique:students,studentCode'
-
+            'std_add' => 'required',
+            'std_gend' => 'required',
+            'std_email' => 'required|email|unique:students,email',
+            'std_num' => 'required',
+            'std_image' => 'required',
+            'std_fath' => 'required',
+            'cou' => 'required',
+            'fac' => 'required'
         ];
     }
 }

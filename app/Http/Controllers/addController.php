@@ -24,14 +24,19 @@ class addController extends Controller
     public function index()
     {
 
-        return view('administration.ManageAll');
+
+        $faculty = Faculty::distinct()->pluck('facultyName', 'id');
+        $course = Course::distinct()->pluck('courseName', 'id');
+
+        return view('administration.ManageAll')
+            ->with('faculty', $faculty)
+            ->with('course', $course);
 
     }
 
 
     public function addCourse(Request $request)
     {
-
         //dd($request->all());
 
         $this->validate(request(), [

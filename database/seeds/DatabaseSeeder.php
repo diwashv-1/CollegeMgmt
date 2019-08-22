@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
 //        factory(\College\Student::class, 3)->create();
 
       //  factory(\College\Books::class, 2)->create();
-        factory(\College\Role::class, 4)->create();
+        //factory(\College\Role::class, 4)->create();
+        factory(\College\Subject::class, 12)->create();
 
 
     }
