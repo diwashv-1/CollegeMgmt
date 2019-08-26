@@ -16,10 +16,17 @@ class CreateMembershipsTable extends Migration
         Schema::create('memberships', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->integer('studentId')->nullable();;
-            $table->integer('teacheId')->nullable();;
+            $table->bigInteger('studentId')->unsigned();
+            $table->bigInteger('teacheId')->unsigned();
             $table->date('issuedDate');
             $table->date('expiryDate');
+
+
+            //Added
+            $table->foreign('studentId')->on('students')->references('id')->onDelete('cascade');
+            $table->foreign('studentId')->on('students')->references('id')->onDelete('cascade');
+
+
         });
     }
 

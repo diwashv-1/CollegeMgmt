@@ -16,8 +16,12 @@ class CreateBookQuantitiesTable extends Migration
         Schema::create('book_quantities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table-> integer('book_id');
+            $table-> bigInteger('book_id')->unsigned();
             $table-> integer('quantity');
+
+            //Added
+                $table->foreign('book_id')->on('books')->references('id')->onDelete('cascade');
+
         });
     }
 

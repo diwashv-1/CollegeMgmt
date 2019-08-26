@@ -15,6 +15,9 @@
                aria-controls="nav-home" aria-selected="true">Issue</a>
             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#recieve" role="tab"
                aria-controls="nav-profile" aria-selected="false">Recieve</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#issueTeacher" role="tab"
+               aria-controls="nav-profile" aria-selected="false">Issue Teacher</a>
+
         </div>
 
 
@@ -142,8 +145,69 @@
             </div>
         </div>
 
+        <div class="tab-pane fade" id="issueTeacher" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-    </div>
+            <div id="msgPop">
+
+            </div>
+
+            <div class="container">
+
+                <div class="col-md-6 mt-3">
+                    @csrf
+                    <div class="form-group row">
+                        <label for="Student Name" class="col-sm-3 col-form-label">Teacher Name :</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="tchName" placeholder="Student Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Student Code" class="col-sm-3 col-form-label">Teacher Code :</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="tchCode" placeholder="Student Code">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Book Code" class="col-sm-3 col-form-label">Book Code :</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="bookCodeT" placeholder="Book Code">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Isbn Code" class="col-sm-3 col-form-label">ISBN Code :</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="isbnCOdeT" placeholder="ISBN Code">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Isbn Code" class="col-sm-3 col-form-label">Issued date :</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="issueDateT" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Expire date" class="col-sm-3 col-form-label">Expiry date :</label>
+                        <div class="col-sm-9">
+                            <input type="date" disabled class="form-control" id="expireDate" placeholder="">
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-sm btn-info float-right" id="addBtnT" disabled><span> <i
+                                        class="fas fa-plus-circle"></i> Add </span></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
     </div>
 @endsection
 
@@ -156,6 +220,11 @@
             var issueDate = $('#issueDate').val();
 //            alert(issueDate);
             $('#addBtn').attr('disabled', false);
+        });
+
+
+        $('#issueDateT').change(function () {
+            $('#addBtnT').attr('disabled', false);
         });
 
 
@@ -185,7 +254,75 @@
                         bookCode: $('#bookCode').val()
                     },
                     success: function () {
+
+
+                        if(response.success == false){
+                            $('#msgPop').html('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center h-50">' +
+                                '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                                response.errorMsg[0] + '</div>');
+                        }else{
+                            $('#msgPop').html('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-center h-50">' +
+                                '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                                response.msg + '</div>');
+
+                        }
+
                         $('#bookCode').val('');
+                    },
+
+
+                    error: function () {
+                        $.each(errors, function (k, v) {
+                            $.each(v.errors, function (k, v) {
+                                console.log(k);
+                                alert(v);
+                            });
+
+
+                        });
+                    }
+                });
+                //bootstrap Alert;
+            }
+
+        });
+
+
+        $('#addBtnT').click(function () {
+            var data;
+            alert();
+            var teacherCode = $('#tchCode').val();
+            var bookCodeT = $('#bookCodeT').val();
+            if (teacherCode == "" || bookCodeT == "") {
+                alert('please Enter Student Code or Book Code');
+
+            }
+
+            if (teacherCode && bookCodeT) {
+                $.ajax({
+                    url: 'saveIssuedBooksTeacher',
+                    method: 'post',
+                    type: 'json',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        tchCode: teacherCode,
+                        bookCodeT: bookCodeT,
+                    },
+
+                    success: function (response) {
+                        if(response.success == false){
+                        $('#msgPop').html('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center h-50">' +
+                            '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                            response.errorMsg[0] + '</div>');
+                        }else{
+                            $('#msgPop').html('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-center h-50">' +
+                                '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                                response.msg + '</div>');
+
+                        }
+
+
+                        $('#bookCodeT').val('');
                     },
 
 
