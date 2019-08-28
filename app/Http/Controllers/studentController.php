@@ -8,6 +8,7 @@ use College\NoBookBlacklist;
 use College\Student;
 use College\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class studentController extends Controller
@@ -95,12 +96,14 @@ class studentController extends Controller
 
         //create User Registration
 
-        User::create([
-            'name' => $request->std_name,
-            'password' => $request->std_num,
-            'role_id' => 3
-        ]);
-
+        if ($student) {
+            User::create([
+                'name' => $request->std_name,
+                'email' => $student->email,
+                'password' => Hash::make($request->std_num),
+                'role_id' => 3
+            ]);
+        }
 
         session()->flash('success', 'Student/Library Membership created Succesfully');
         return redirect('/manage');

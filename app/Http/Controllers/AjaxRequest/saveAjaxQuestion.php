@@ -48,5 +48,21 @@ class saveAjaxQuestion extends Controller
     }
 
 
+    public function questionApprove( Request $request)
+    {
+        $res = Question::find($request->id);
+        $res->update(['approved'=> 1]);
+
+
+
+
+        return response()->json([
+            'msg' => 'success',
+        ]);
+
+
+    }
+
+
     //
 }

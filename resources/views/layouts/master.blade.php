@@ -310,12 +310,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-book"></i>
+                            <p>
+                                Examination
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{'approveQuestion'}}" class="nav-link">
+                                    <i class="fas fa-book-open ml-1"></i>
+                                    <p class="ml-2">Approve Question</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('conductExam')}}" class="nav-link">
+                                    <i class="fas fa-book-open ml-1"></i>
+                                    <p class="ml-2">Conduct Exam</p>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fas fa-book-open ml-1"></i>
+                                    <p class="ml-2">Results</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Simple Link
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                        <a href="{{'/logout'}}" class="nav-link">
+                            <i class="nav-icon fas fa-door-open"></i>
+                            <p>
+                                logout
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>

@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/logout', function () {
 
     return Auth::logout();
+
 });
 
 
@@ -54,6 +55,23 @@ Route:: group(['middleware' => ['auth', 'admin']], function () {
         'as' => 'fetchLibraryDetail',
     ]);
 
+    Route::get('/approveQuestion', [
+        'uses' => 'Exam\ExaminationController@approve',
+        'as' => 'approveQuestion',
+    ]);
+
+    Route::get('/viewQuestion/{id}', [
+
+        'uses' => 'Exam\ExaminationController@viewQuestion',
+        'as' => 'viewQuestion',
+    ]);
+
+
+    Route::get('/Exam/conduct', [
+        'uses' => 'Exam\ExaminationController@conductExam',
+        'as' => 'conductExam'
+    ]);
+
 
     Route::resource('Books', 'BookController');
 
@@ -76,8 +94,9 @@ Route:: group(['middleware' => ['auth', 'admin']], function () {
 Route::get('/fetchAjaxFaculty', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFaculty');
 Route::post('/fetchAjaxCourse', 'AjaxRequest\fetchAJaxRequest@fetchAjaxCourse');
 Route::post('/fetchAjaxStudent', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudent');
-route::post('/fetchAjaxStudentBookDetail', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudentBookDetail');
-route::post('/fetchBookCode', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFurtherBook');
+Route::post('/fetchAjaxStudentBookDetail', 'AjaxRequest\fetchAJaxRequest@fetchAjaxStudentBookDetail');
+Route::post('/fetchBookCode', 'AjaxRequest\fetchAJaxRequest@fetchAjaxFurtherBook');
+
 
 //save
 Route::post('/saveIssuedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveAjaxIssuedBooks');
@@ -85,18 +104,23 @@ Route::post('/saveRecievedBooksAjax', 'AjaxRequest\saveAJaxRequest@saveRecievedB
 
 Route::post('/saveIssuedBooksTeacher', 'AjaxRequest\saveAJaxRequest@saveBooksTeacher');
 
+Route::post('/savequestionAppr', 'AjaxRequest\saveAjaxQuestion@questionApprove');
 
 Route::post('/saveFurtherBook', 'AjaxRequest\saveAJaxRequest@saveFurtherBooksAjax');
 
 
+Route::post('/fetchAjaxSubject', 'Exam\ExamAjaxController@fetchSubject');
+
+Route::post('/saveAjaxExam', 'Exam\ExamAjaxController@saveAjaxExam');
+
 
 Route::get('bookDetailT', [
 
-    'uses'=> 'teacher\LibraryController@bookIndex',
-    'as'=>'bookDetailT',
+    'uses' => 'teacher\LibraryController@bookIndex',
+    'as' => 'bookDetailT',
 ]);
 
-Route::get('question',[
+Route::get('question', [
     'uses' => 'teacher\QuestionController@prepareQuestion',
     'as' => 'prepareQuestion'
 ]);
@@ -108,5 +132,31 @@ Route::get('/questionsManage', [
 ]);
 
 Route::get('/teacherLibrary', 'teacher\LibraryController@libIndex');
+
+
+//student
+
+Route::get('examDashboardS', [
+    'uses' => 'student\studentPController@examDashboard',
+    'as' => 'examDashboardS'
+]);
+
+
+Route::get('Exam/Dashboard', [
+    'uses' => 'student\studentPController@examDashboard',
+    'as' => 'examDashboardS'
+]);
+
+
+Route::get('Start/Exam/{id}', [
+    'uses' => 'student\ExamController@examStart',
+    'as' => 'startExam'
+
+
+]);
+
+
+
+
 
 

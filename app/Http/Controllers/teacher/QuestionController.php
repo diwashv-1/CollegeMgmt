@@ -15,7 +15,7 @@ class QuestionController extends Controller
 
     public function prepareQuestion()
     {
-        $teacherId = Question::staffsId();
+        $teacherId = staffs::staffsId();
 
 
 //dd($teacherId->id);
@@ -31,7 +31,6 @@ class QuestionController extends Controller
     {
         $teacherid = staffs::staffsId();
 
-//$res =         staffs::find($teacherid->id)->questions()->get();
 
         $result = DB::table('questions')
             ->join('answers', 'answers.id', '=', 'questions.id')

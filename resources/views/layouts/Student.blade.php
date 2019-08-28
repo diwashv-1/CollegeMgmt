@@ -199,7 +199,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/manage" class="nav-link">
+                                <a href="{{route('examDashboardS')}}" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
                                     <p>Exam Dashboard</p>
                                 </a>
@@ -233,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/manage" class="nav-link">
                                     <i class="fas fa-book-open ml-1"></i>
                                     <p class="ml-2">Lib Dashboard</p>
                                 </a>

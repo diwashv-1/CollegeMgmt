@@ -10,7 +10,7 @@ class Question extends Model
     //
 
     protected $fillable = [
-        'question', 'course_id','set', 'staff_id', 'subject_id'
+        'question', 'course_id','set', 'staff_id', 'subject_id', 'approved'
     ];
 
 
@@ -23,7 +23,13 @@ public function staffs(){
 
 
 
+public function answer(){
 
+
+    return $this->hasOne(Answer::class, );
+
+
+}
 
 
 
