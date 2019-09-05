@@ -35,6 +35,13 @@
                 </select>
             </div>
 
+
+            <div class="col-md-12 mt-3">
+                <label class=""> Time :</label>
+                <input type="time" name="time" id="time" class="form-control">
+            </div>
+
+
             <div class="col-md-12 mt-3">
                 <label class=""> No of Question: </label>
                 <input type="text" class="form-control" id="question" name="question">
@@ -76,7 +83,7 @@
                             <th> No of Question</th>
                             <th> F.M</th>
                             <th> P.M</th>
-
+                            <th> Time</th>
                         </tr>
                         </thead>
 
@@ -139,7 +146,8 @@
             tableData += '<td>' + $('#subject option:selected').html() + '</td>';
             tableData += '<td>' + $('#question').val() + '</td>';
             tableData += '<td>' + $('#markF').val() + '</td>';
-            tableData += '<td>' + $('#markP').val() + '</td><';
+            tableData += '<td>' + $('#markP').val() + '</td>';
+            tableData += '<td>' + $('#time').val() + '</td>';
             tableData += '<td hidden>' + $('#course').val() + '</td>';
             tableData += '<td hidden>' + $('#subject').val() + '</td></tr>';
 
@@ -155,12 +163,14 @@
 
                 tableArray.push({
                     date: $(this).find('td:eq(0)').html(),
-                    course: $(this).find('td:eq(6)').html(),
+                    course: $(this).find('td:eq(7)').html(),
                     subjectName: $(this).find('td:eq(2)').html(),
-                    subject: $(this).find('td:eq(7)').html(),
+                    subject: $(this).find('td:eq(8)').html(),
                     question: $(this).find('td:eq(3)').html(),
                     markF: $(this).find('td:eq(4)').html(),
                     markP: $(this).find('td:eq(5)').html(),
+                    time: $(this).find('td:eq(6)').html(),
+
                 });
             });
 

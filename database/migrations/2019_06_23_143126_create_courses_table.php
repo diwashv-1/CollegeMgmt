@@ -19,6 +19,10 @@ class CreateCoursesTable extends Migration
             $table->string('courseName');
             $table->integer('courseCode');
             $table->integer('facultyId')->nullable();
+
+
+
+
         });
     }
 

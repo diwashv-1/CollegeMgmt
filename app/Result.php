@@ -4,14 +4,11 @@ namespace College;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Result extends Model
 {
 
     protected $fillable = [
-        'courseName',
-        'courseCode',
-        'selectFac',
-        'timePeriod'
+       'student_id', 'exam_id', 'totalQsn', 'nonAttemptQsn', 'correct', 'wrong',
     ];
 
     //

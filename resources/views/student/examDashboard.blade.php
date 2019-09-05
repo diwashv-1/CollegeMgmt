@@ -32,10 +32,9 @@
                 @if($value->semester ==1)
                     <a href="{{route('startExam',$value->id)}}" class="form-control list-group-item list-group-item-action"
                        id="$value->id">{{$value->subjectName}}</a>
-
                 @endif
-
             @endforeach
+
 
 
         </div>

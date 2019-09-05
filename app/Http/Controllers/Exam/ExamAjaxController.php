@@ -32,7 +32,7 @@ class examAjaxController extends Controller
                     'examName' => $value['subjectName'],
                     'subject_id' => $value['subject'],
                     'examDate' => $value['date'],
-                    'time' => 5,
+                    'time' => $value['time'],
                     'course_id' => $value['course'],
                     'questionT' => $value['question'],
                     'fm' => $value['markF'],

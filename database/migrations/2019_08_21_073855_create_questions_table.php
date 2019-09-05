@@ -22,7 +22,6 @@ class CreateQuestionsTable extends Migration
             $table-> bigInteger('staff_id')->unsigned();
             $table->timestamps();
             $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade');
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
     /**

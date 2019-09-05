@@ -16,15 +16,15 @@ class CreateMembershipsTable extends Migration
         Schema::create('memberships', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('studentId')->unsigned();
-            $table->bigInteger('teacheId')->unsigned();
+            $table->bigInteger('studentId')->unsigned()->nullable();
+            $table->bigInteger('teacheId')->unsigned()->nullable();
             $table->date('issuedDate');
             $table->date('expiryDate');
 
 
             //Added
             $table->foreign('studentId')->on('students')->references('id')->onDelete('cascade');
-            $table->foreign('studentId')->on('students')->references('id')->onDelete('cascade');
+            $table->foreign('teacheId')->on('staffs')->references('id')->onDelete('cascade');
 
 
         });

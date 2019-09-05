@@ -16,13 +16,12 @@ class QuestionController extends Controller
     public function prepareQuestion()
     {
         $teacherId = staffs::staffsId();
-
-
 //dd($teacherId->id);
 
-        $subject = staffs::find($teacherId->id)->subjects()->pluck('id', 'subjectName');
 
+        $subject = staffs::find($teacherId->id)->subjects()->pluck('id', 'subjectName');
         return view('teacher.question')->with('subject', $subject);
+
 
     }
 

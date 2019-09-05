@@ -57,7 +57,8 @@ class studentController extends Controller
         $enrolledDate = substr($request->std_enro, 0, 4);
         $image = $request->std_image->store('student', 'public');
 //        dd($image);
-        //dd($request->cou, $request->fac);
+
+
         $student = Student::create([
             'studentName' => $request->std_name,
             'address' => $request->std_add,
@@ -65,8 +66,8 @@ class studentController extends Controller
             'studentImage' => $image,
             'fatherName' => $request->std_fath,
             'phoneNumber' => $request->std_num,
-            'facultyId' => $request->fac,
-            'courseId' => $request->cou,
+            'faculty_id' => $request->fac,
+            'course_id' => $request->cou,
             'enrolledyear' => $request->std_enro,
             'email' => $request->std_email,
             'enrolledDate' => $enrolledDate,
@@ -81,6 +82,7 @@ class studentController extends Controller
 //create Membership for this student
         Membership::create([
             'studentId' => $forMemId,
+            'teacheId' => null,
             'issuedDate' => $currentDate,
             'expiryDate' => $expireDate
         ]);
@@ -90,7 +92,6 @@ class studentController extends Controller
 
             'student_id' => $forMemId,
             'countBook' => 0,
-            'teacher_id' => 0,
             'blackList' => 0,
         ]);
 

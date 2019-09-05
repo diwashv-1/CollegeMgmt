@@ -73,6 +73,13 @@
                                    name="courseCode">
                         </div>
 
+
+                        <div class="form-group row col-lg-7">
+                            <label for="" class=" col-form-label">Time period:</label>
+                            <input type="text" class="form-control" id="timePeriod" name ="timePeriod"  placeholder="Year"
+                                   >
+                        </div>
+
                         <div class="form-group row col-lg-7">
                             <label for="inputPassword3" class="">Faculty Select:</label>
                             <select id="selectFac" name="selectFac" class="form-control">

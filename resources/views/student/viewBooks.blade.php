@@ -1,8 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.Student')
+
+@section('title')
+    <title> View Books </title>
+
+@endsection
 
 @section('content')
-
-
     <div class="container mt-4">
         <table class="table table-striped table-sm">
             <thead>
@@ -26,7 +29,7 @@
                     <td>{{$sn++}}</td>
                     <td> {{$result->studentName}} </td>
                     <?php
-                          $val =  substr($result->created_at,0,10);
+                    $val =  substr($result->created_at,0,10);
                     ?>
                     <td>
                         {{$val}}
@@ -55,7 +58,5 @@
 
 
 @section('scripts')
-
-
 
 @endsection

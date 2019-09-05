@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-//        factory(\College\Student::class, 3)->create();
+       // factory(\College\Student::class, 3)->create();
 
-      //  factory(\College\Books::class, 2)->create();
+ //       factory(\College\Books::class, 7)->create();
         //factory(\College\Role::class, 4)->create();
-        factory(\College\Subject::class, 12)->create();
+        factory(\College\Subject::class, 20)->create();
 
 
     }

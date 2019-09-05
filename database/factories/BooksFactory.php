@@ -12,8 +12,8 @@ $factory->define(\College\Books::class, function (Faker $faker) {
         'authorName'=> $faker->name,
         'facultyId'=>$faker->numberBetween(1,3),
         'publisher'=>$faker->domainName,
-        'price'=>$faker->creditCardNumber,
-        'entryDate'=>$faker->date(),
+        'price'=>$faker->numberBetween(220, 1000),
+        'entryDate'=>$faker->name,
         'bookCode'=>$faker->numberBetween(120, 140),
         'bookType'=>$faker->paragraphs
 

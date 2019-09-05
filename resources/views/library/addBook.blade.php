@@ -198,9 +198,6 @@
         });
 
 
-
-
-
         $('.bookBtn').click(function () {
             var id = $(this).attr('data');
             var name = $(this).closest('tr').find("td:eq(0)").text();
@@ -260,17 +257,15 @@
                         code: issueCode
                     },
                     success: function (result) {
-                        alert('yes  ');
+                        alert(result.success);
                         $('#issueCode').val('');
 
                     },
 
-
                     error: function (errors) {
                         $.each(errors, function (k, v) {
                             $.each(v.errors, function (k, v) {
-                                console.log(k);
-                                alert(v);
+                                alert(v.errorMsg);
                             });
 
                         });

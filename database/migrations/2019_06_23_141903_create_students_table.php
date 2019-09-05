@@ -23,14 +23,12 @@ class CreateStudentsTable extends Migration
             $table->string('fatherName');
             $table->string('motherName')->nullable();
             $table->integer('phoneNumber')->nullable();
-            $table->integer('facultyId')->unsigned();
-            $table->integer('courseId')->unsigned();
+            $table->biginteger('faculty_id')->unsigned();
+            $table->biginteger('course_id')->unsigned();
             $table->date('enrolledyear');
             $table->string('email');
             $table->string('enrolledDate')->nullable();
 
-            $table->foreign('courseId')->on('courses')->references('id');
-            $table->foreign('facultyId')->on('faculties')->references('id');
 
 
         });

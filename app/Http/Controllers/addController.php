@@ -18,6 +18,7 @@ class addController extends Controller
 
         $this->middleware('auth');
 
+
     }
 
 
@@ -37,23 +38,20 @@ class addController extends Controller
 
     public function addCourse(Request $request)
     {
-        //dd($request->all());
-
         $this->validate(request(), [
             'courseName' => 'required',
             'courseCode' => 'required'
         ]);
 
-
         Course::create([
             'courseName' => $request->courseName,
             'courseCode' => $request->courseCode,
-            'facultyId' => $request->selectFac
+            'facultyId' => $request->selectFac,
+            'timePeriod' => $request->timePeriod
         ]);
 
         session()->flash('success', 'Course Added Succesfully');
         return redirect('/manage');
-
     }
 
 
@@ -72,11 +70,10 @@ class addController extends Controller
         return view('library.issueBooks');
     }
 
+
     public function libraryCard()
     {
-
         $res = DB::table('students')->select('students.enrolledDate')->distinct()->get();
-
         return view('library.libraryCard')->with('result', $res);
 
     }

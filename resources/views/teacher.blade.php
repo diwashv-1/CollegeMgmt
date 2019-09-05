@@ -22,7 +22,7 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    @endsection
+@endsection
 
 
 
@@ -32,35 +32,32 @@
     <div>
 
 
-
     </div>
 
 
     <div class="container">
-<div class="card">
-    <div class="card-body">
+        <div class="card">
+            <div class="card-body">
 
 
 
+            </div>
 
-    </div>
 
-
-</div>
+        </div>
     </div>
 
 
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(document).ready(function(){
-        $("#data-table").DataTable();
-    });
+        $(document).ready(function () {
+            $("#data-table").DataTable();
+        });
 
 
+    </script>
 
-</script>
-
-    @endsection
+@endsection

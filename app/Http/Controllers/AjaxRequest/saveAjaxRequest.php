@@ -61,7 +61,7 @@ class saveAjaxRequest extends Controller
 
                     IssuedBooks::create([
                         'student_Id' => $stdId,
-                        'teacher_Id' => 0,
+                        'teacher_Id' => 1,
                         'Book_Id' => $bookCodes->id,
                         'expire_Date' => $expireDate,
                         'recieved' => 0
@@ -76,7 +76,7 @@ class saveAjaxRequest extends Controller
         } else {
             NoBookBlacklist::create([
                 'student_id' => $stdId,
-                'teacher_id' => 0,
+                'teacher_id' => 1,
                 'countBook' => 1,
                 'blackList' => 0
             ]);
@@ -84,7 +84,7 @@ class saveAjaxRequest extends Controller
             $bookQuantity->decrement('quantity', 1);
             IssuedBooks::create([
                 'student_Id' => $stdId,
-                'teacher_Id' => 0,
+                'teacher_Id' => 1,
                 'Book_Id' => $bookCodesId,
                 'expire_Date' => $expireDate,
                 'recieved' => 0
@@ -134,7 +134,10 @@ class saveAjaxRequest extends Controller
         $forNoBook = NoBookBlacklist::where('student_id', $stdId)->first();
 
 
-        $Issued = IssuedBooks::where('student_id', $stdId)->where('Book_id', $bookCodesId)->first();
+        $Issued = IssuedBooks::latest()
+            ->where('student_id', $stdId)
+            ->where('Book_id', $bookCodesId)
+            ->first();
 
 
         $currentDate = date('Y-m-d');

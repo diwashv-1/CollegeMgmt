@@ -2,6 +2,8 @@
 
 namespace College\Http;
 
+use College\Http\Middleware\checkStudent;
+use College\Http\Middleware\checkTeacher;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -61,6 +63,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin'=> \College\Http\Middleware\checkAdmin::class,
+        'student' => checkStudent::class,
+        'teacher' => checkTeacher::class,
+
+
     ];
 
     /**

@@ -16,9 +16,18 @@ class CreateNoBookBlacklistsTable extends Migration
         Schema::create('no_book_blacklists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->integer('student_id')->nullable();
-            $table->integer('teacher_id')->nullable();
+            $table->bigInteger('student_id')->unsigned()->nullable();
+            $table->bigInteger('teacher_id')->unsigned()->nullable();
             $table->integer('countBook')->nullable();
+            $table->string('blackList')->nullable();
+
+
+            $table->foreign('student_id')->on('students')->references('id');
+            $table->foreign('teacher_id')->on('staffs')->references('id');
+
+
+
+
 
         });
     }

@@ -14,7 +14,11 @@ class CreateUsersTableUpdate2 extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role_id');
+            $table->bigInteger('role_id')->unsigned();
+            $table->foreign('role_id')->on('roles')->references('id')->onDelete('cascade');
+
+
+
         });
     }
 

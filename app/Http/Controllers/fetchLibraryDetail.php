@@ -24,6 +24,8 @@ class fetchLibraryDetail extends Controller
             ->orderBy('issued_books.Book_id', 'asc')
             ->get();
 
+
+
         return view('library.fetchStudentDetail')->with('result', $check);
 
 
@@ -36,7 +38,7 @@ class fetchLibraryDetail extends Controller
 
         $result = DB::table('students')
             ->join('no_book_blacklists', 'no_book_blacklists.student_id', '=', 'students.id')
-            ->join('faculties', 'faculties.id', '=', 'students.facultyId')
+            ->join('faculties', 'faculties.id', '=', 'students.faculty_id')
             ->select('students.id', 'students.studentName', 'students.studentCode', 'students.address', 'faculties.facultyName',
                 'no_book_blacklists.countBook', 'no_book_blacklists.blackList')
             ->get();

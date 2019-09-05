@@ -22,6 +22,9 @@ class CreateAnswersTable extends Migration
             $table->string('option4');
             $table->string('correct');
 
+            $table->foreign('question_id')->on('questions')->references('id')->onDelete('cascade');
+
+
         });
     }
 

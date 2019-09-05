@@ -37,7 +37,7 @@ class StaffController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,14 +48,14 @@ class StaffController extends Controller
 
         $staff = staffs::create([
 
-            'staffName'=> $request->sta_name,
+            'staffName' => $request->sta_name,
             'staffGender' => $request->sta_gend,
-            'staffAddress'=> $request->sta_add,
-            'staffImage'=> $image,
-            'contactNumber'=> $request ->sta_num,
-            'enrolledYear'=> $request -> sta_enro,
-            'roleId'=> 2,
-            'email'=> $request-> staff_email,
+            'staffAddress' => $request->sta_add,
+            'staffImage' => $image,
+            'contactNumber' => $request->sta_num,
+            'enrolledYear' => $request->sta_enro,
+            'roleId' => 2,
+            'email' => $request->staff_email,
             'staffCode' => 220,
         ]);
 
@@ -66,22 +66,18 @@ class StaffController extends Controller
 
         Membership::create([
             'teacheId' => $staff->id,
-            'issuedDate'=> $currentDate,
+            'issuedDate' => $currentDate,
             'expiryDate' => $expireDate,
 
         ]);
 
 
-
         User::create([
-            'name'=>$request->sta_name,
-            'password' =>Hash::make( $request->sta_num),
-            'email'=> $request->staff_email,
-            'staffs_id' => $staff->id,
-            'student_id' => 0,
-            'role_id'=>$staff->roleId,
+            'name' => $request->sta_name,
+            'password' => Hash::make($request->sta_num),
+            'email' => $request->staff_email,
+            'role_id' => $staff->roleId,
         ]);
-
 
 
         session()->flash('success', 'Staff Added Succesfully');
@@ -95,10 +91,10 @@ class StaffController extends Controller
         //
     }
 
-    /**
+    /**x
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -109,8 +105,8 @@ class StaffController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -121,7 +117,7 @@ class StaffController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

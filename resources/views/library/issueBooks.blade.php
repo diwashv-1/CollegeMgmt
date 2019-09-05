@@ -26,9 +26,8 @@
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="issue" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="container mt-5">
-                <div class="" id="messagePopUp"></div>
+                <div class="" id="msgPop"></div>
                 <div class="row">
-
                     <div class="col-md-6 mt-3">
                         @csrf
                         <div class="form-group row">
@@ -108,7 +107,7 @@
         <div class="tab-pane fade" id="recieve" role="tabpanel" aria-labelledby="nav-profile-tab">
 
             <div class="container-fluid mt-5">
-                <div class="" id="messagePopUp"></div>
+                <div class="" id="msgPopUp"></div>
                 <div class="row">
 
                     @csrf
@@ -236,7 +235,6 @@
 
         $('#addBtn').click(function () {
             var data;
-            alert();
             var studentCode = $('#StdCode').val();
             var bookCode = $('#bookCode').val();
             if (studentCode == "" || bookCode == "") {
@@ -253,14 +251,12 @@
                         stdCode: $('#StdCode').val(),
                         bookCode: $('#bookCode').val()
                     },
-                    success: function () {
-
-
-                        if(response.success == false){
+                    success: function (response) {
+                        if (response.success == false) {
                             $('#msgPop').html('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center h-50">' +
                                 '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
                                 response.errorMsg[0] + '</div>');
-                        }else{
+                        } else {
                             $('#msgPop').html('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-center h-50">' +
                                 '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
                                 response.msg + '</div>');
@@ -310,11 +306,11 @@
                     },
 
                     success: function (response) {
-                        if(response.success == false){
-                        $('#msgPop').html('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center h-50">' +
-                            '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
-                            response.errorMsg[0] + '</div>');
-                        }else{
+                        if (response.success == false) {
+                            $('#msgPop').html('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center h-50">' +
+                                '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                                response.errorMsg[0] + '</div>');
+                        } else {
                             $('#msgPop').html('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-center h-50">' +
                                 '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
                                 response.msg + '</div>');
@@ -411,7 +407,12 @@
                         stdCode: $('#rcvStdCode').val(),
                         bookCode: $('#rcvBookCode').val()
                     },
-                    success: function () {
+                    success: function (response) {
+
+                            $('#msgPopUp').html('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-center h-50">' +
+                                '<button type="button" class=" close" data-dismiss="alert">&times;</button>' +
+                                response.msg+'</div>');
+
 
 
                         //$('#bookCode').val('');
