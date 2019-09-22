@@ -11,6 +11,9 @@
 |
 */
 
+use Carbon\Carbon;
+use College\staffs;
+
 Route::get('/', function () {
 
     $std = \College\Student::find(13);
@@ -27,13 +30,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/logout', function () {
-
     Auth::logout();
-
     return view('auth.login');
-
-
-});
+})->name('logout');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -111,7 +110,6 @@ Route::post('/savequestionAppr', 'AjaxRequest\saveAjaxQuestion@questionApprove')
 
 Route::post('/saveFurtherBook', 'AjaxRequest\saveAJaxRequest@saveFurtherBooksAjax');
 
-
 Route::post('/fetchAjaxSubject', 'Exam\ExamAjaxController@fetchSubject');
 
 Route::post('/saveAjaxExam', 'Exam\ExamAjaxController@saveAjaxExam');
@@ -140,15 +138,25 @@ Route:: group(['middleware' => ['auth', 'teacher']], function () {
 
     Route::get('/teacherLibrary', 'teacher\LibraryController@libIndex');
 
-});
+    Route::get('/subjects', function () {
+        $id = staffs::staffsId();
+        $subject = staffs::find($id->id)->subjects()->pluck('id', 'subjectName');
+        return view('teacher.attendance', compact('subject', $subject));
+    })->name('subject');
 
+    Route::post('/fetchStudent', 'teacher\StudentAttendanceController@fetchStudent');
+
+    Route::post('/Attendance', [
+        'uses'=> 'teacher\StudentAttendanceController@saveAttendance',
+        'as'=> 'saveAttendance',
+    ]);
+
+});
 
 //student
 
 
 Route:: group(['middleware' => ['auth', 'student']], function () {
-
-
     Route::get('examDashboardS', [
         'uses' => 'student\studentPController@examDashboard',
         'as' => 'examDashboardS'
@@ -160,7 +168,6 @@ Route:: group(['middleware' => ['auth', 'student']], function () {
         'as' => 'bookDetail'
     ]);
 
-
     Route::get('Exam/Dashboard', [
         'uses' => 'student\studentPController@examDashboard',
         'as' => 'examDashboardS'
@@ -169,29 +176,29 @@ Route:: group(['middleware' => ['auth', 'student']], function () {
     Route::get('Start/Exam/{id}', [
         'uses' => 'student\ExamController@examStart',
         'as' => 'startExam'
-
-
     ]);
 
     Route::get('Exam/Result', [
         'uses' => 'student\ExamController@examResult',
         'as' => 'examResult'
-
     ]);
-
 
     Route::get('Exam/start/{id}', [
         'uses' => 'student\ExamController@start',
         'as' => 'start'
-
-
     ]);
+    Route::get('/Attendance', function(){
+            return view('student.viewAttendance');
+    })->name('viewAttendance');
+
+    Route::post('/fetchAttendance', 'student\studentPController@fetchAttendance');
+
 
 
     Route::post('saveAnswer', [
         'uses' => 'student\ExamController@saveAnswer',
         'as' => 'saveAns'
-
-
     ]);
+
+
 });

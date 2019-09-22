@@ -26,7 +26,10 @@ class Student extends Model
     //
 
 
+      public function semester(){
+          return $this->hasOne('semesters');
 
+      }
 
     public function books(){
         return $this-> hasMany('College\IssuedBooks', 'student_id');
@@ -43,10 +46,13 @@ class Student extends Model
 
     public function scopeStudentsId(){
 
-
         $email = Auth::user()->email;
         return $teacherId = Student::where('email', $email)->select('id')->first();
 
+
+
+
     }
+
 
 }

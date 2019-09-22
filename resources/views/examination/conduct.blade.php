@@ -114,7 +114,6 @@
     <script>
         $('#course').on('change', function () {
             $('#subject').find('option').remove();
-
             $('#subject').attr('disabled', false);
             $.ajax({
                 url: '/fetchAjaxSubject',
@@ -125,10 +124,8 @@
                     'id': $('#course').val(),
                 },
                 success: function (response) {
-
                     var option = '';
                     $.each(response.result, function (k, v) {
-
                         option += '<option value="' + v.id + '" data ="' + v.subjectName + '">' + v.subjectName + '</option>';
                     });
 
@@ -160,7 +157,6 @@
             var tableArray = [];
             tableArray.length = 0;
             $('#examTable tbody tr').each(function () {
-
                 tableArray.push({
                     date: $(this).find('td:eq(0)').html(),
                     course: $(this).find('td:eq(7)').html(),
@@ -173,6 +169,7 @@
 
                 });
             });
+
 
             $.ajax({
                 url: '/saveAjaxExam',

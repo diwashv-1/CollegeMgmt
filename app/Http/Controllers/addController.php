@@ -17,14 +17,10 @@ class addController extends Controller
     {
 
         $this->middleware('auth');
-
-
     }
-
 
     public function index()
     {
-
 
         $faculty = Faculty::distinct()->pluck('facultyName', 'id');
         $course = Course::distinct()->pluck('courseName', 'id');
@@ -32,7 +28,6 @@ class addController extends Controller
         return view('administration.ManageAll')
             ->with('faculty', $faculty)
             ->with('course', $course);
-
     }
 
 
@@ -73,6 +68,9 @@ class addController extends Controller
 
     public function libraryCard()
     {
+
+
+
         $res = DB::table('students')->select('students.enrolledDate')->distinct()->get();
         return view('library.libraryCard')->with('result', $res);
 

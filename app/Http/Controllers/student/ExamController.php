@@ -71,17 +71,11 @@ class ExamController extends Controller
                 ->with('exam', $exam)
                 ->with('true', $true)
                 ->with('result', $result);
-
         }
-
-
     }
 
     public function saveAnswer(Request $request)
     {
-
-
-
         $id = Student::StudentsId();
         $data = $request->all();
         $wrong = 0;
@@ -103,9 +97,7 @@ class ExamController extends Controller
             }
         }
 
-
       $result =  Result::create([
-
             'student_id' => $id->id,
             'exam_id' => $exam_id,
             'totalQsn' => $wrong + $correct,
@@ -113,7 +105,6 @@ class ExamController extends Controller
             'correct' => $correct,
             'wrong' => $wrong,
         ]);
-
 
         return view('student.examResult')
             ->with('result', $result);

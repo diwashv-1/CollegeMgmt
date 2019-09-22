@@ -13,6 +13,7 @@ class fetchLibraryDetail extends Controller
     public function fetchLibDetail($id)
     {
         $res = Student::find($id)->books;
+
         $check = DB::table('students')
             ->join('issued_books', 'students.id', '=', 'issued_books.student_id')
             ->join('book_codes', 'book_codes.id', '=', 'issued_books.Book_id')

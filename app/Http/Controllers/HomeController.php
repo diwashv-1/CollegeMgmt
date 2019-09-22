@@ -28,7 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view(Auth::user()->role->name);
+        $user = Auth::user()->name;
+        return view(Auth::user()->role->name)->with('user', $user);
     }
 
     public function libraryStudents()
@@ -46,14 +47,15 @@ class HomeController extends Controller
     }
 
 
-    public function checkfetchLibraryDetail($id){
+    public function checkfetchLibraryDetail($id)
+    {
 
         echo $id;
 
         dd();
 
 
-}
+    }
 
 
 }

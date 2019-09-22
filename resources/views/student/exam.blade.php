@@ -4,18 +4,11 @@
     <title> Select Exam </title>
 
 @endsection
-
-
 @section('headSection')
-
-
 
 @endsection
 
-
-
 <div class="card">
-
     <div class="card-body">
 
 

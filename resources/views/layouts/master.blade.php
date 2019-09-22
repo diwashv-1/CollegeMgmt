@@ -304,9 +304,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <i class="fas fa-book-open ml-1"></i>
                                     <p class="ml-2">Invoice Geerate</p>
                                 </a>
-
                             </li>
 
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-book"></i>
+                            <p>
+                                 Student
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-book-open ml-1"></i>
+                                    <p class="ml-2">Attendance</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -337,7 +355,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
 
                         </ul>
-
 
                         <ul class="nav nav-treeview">
                             <li class="nav-item">

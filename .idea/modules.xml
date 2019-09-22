@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/COllege_Mgmt.iml" filepath="$PROJECT_DIR$/.idea/COllege_Mgmt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../laravelApi/.idea/laravelApi.iml" filepath="$PROJECT_DIR$/../laravelApi/.idea/laravelApi.iml" />
     </modules>
   </component>
 </project>

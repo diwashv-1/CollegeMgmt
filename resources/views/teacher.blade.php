@@ -7,9 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-
-                    <h1 class="m-0 text-warning">Teacher Home</h1>
-
+                    <h1 class="m-0 text-success"> Welcome {{$user}} !!!</h1>
 
                 </div><!-- /.col -->
                 <div class="col-sm-6">

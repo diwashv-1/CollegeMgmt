@@ -159,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="/img/boy.png" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Teacher</a>
+                    <a href="#" class="d-block">{{@(Auth::user()->name)}}</a>
                 </div>
             </div>
 
@@ -189,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/manage" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
                                     <p>Exam Dashboard</p>
                                 </a>
@@ -227,6 +227,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-book"></i>
+                            <p>
+                                Attendance
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('subject')}}" class="nav-link">
+                                    <i class="fas fa-book-open ml-1"></i>
+                                    <p class="ml-2">Student</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
 
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link ">
@@ -251,6 +269,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </ul>
                     </li>
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="{{route('logout')}}" class="nav-link ">
+                            <i class="fas fa-door-open"></i>
+                            <p>
+                                logout
+                            </p>
+                        </a>
+
 
                 </ul>
             </nav>

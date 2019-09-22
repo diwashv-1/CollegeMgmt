@@ -201,14 +201,11 @@
         });
 
         $('#saveBtn').on('click', function (e) {
-
             e.preventDefault();
             var tableData = [];
             tableData.length = 0;
             $('#questionTable tbody tr').each(function () {
-
                 tableData.push({
-
                     question: $(this).find('td:eq(0) textarea').val(),
                     option1: $(this).find('td:eq(1) input').val(),
                     option2: $(this).find('td:eq(2) input').val(),

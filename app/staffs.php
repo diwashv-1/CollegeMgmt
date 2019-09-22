@@ -22,7 +22,7 @@ class staffs extends Model
 
 ];
 
-    public  function subjects(){
+    public function subjects(){
 
         return $this->belongsToMany(Subject::class,'subject_staffs');
     }

@@ -1,47 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="546f9e43-f523-4a7d-9543-4d4bc503f5cf" name="Default Changelist" comment="4th Change 4">
-      <change afterPath="$PROJECT_DIR$/resources/views/student/exam.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/examResult.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/examStart.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/result.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/viewBooks.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="546f9e43-f523-4a7d-9543-4d4bc503f5cf" name="Default Changelist" comment="5th Change">
+      <change afterPath="$PROJECT_DIR$/app/Attendance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/teacher/StudentAttendanceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Semester.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_17_011902_create_semesters_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_18_065042_create_attendances_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_18_171900_create_attendances_table_update1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/student/viewAttendance.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/teacher/attendance.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/COllege_Mgmt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COllege_Mgmt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Exam/ExamAjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Exam/ExamAjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/addController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/addController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/fetchLibraryDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/fetchLibraryDetail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/student/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/student/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/student/LibraryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/student/LibraryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/student/studentPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/student/studentPController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/studentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/studentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/teacher/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/teacher/QuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/teacher/LibraryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/teacher/LibraryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/BooksFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/BooksFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_23_141903_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_23_141903_create_students_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_23_143126_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_23_143126_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_23_144326_create_memberships_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_23_144326_create_memberships_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_08_064406_create_no_book_blacklists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_064406_create_no_book_blacklists_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_125840_create__users_table_update2.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_125840_create__users_table_update2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_21_073855_create_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_073855_create_questions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_21_074953_create_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_074953_create_answers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/staffs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/staffs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/administration/manageAll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/administration/manageAll.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/examination/conduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/examination/conduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/Student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Student.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/library/addBook.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/library/addBook.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/library/fetchStudentDetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/library/fetchStudentDetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/library/issueBooks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/library/issueBooks.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/examDashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/examDashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/student/exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/exam.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teacher/question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/question.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,10 +173,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../school_mgmt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -208,11 +198,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.laravelApi">
+    <configuration name="laravelApi" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/../laravelApi" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.laravelApi" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -244,7 +243,11 @@
       <workItem from="1567691497588" duration="75000" />
       <workItem from="1567691592811" duration="172000" />
       <workItem from="1567691783643" duration="140000" />
-      <workItem from="1567691942743" duration="1222000" />
+      <workItem from="1567691942743" duration="1662000" />
+      <workItem from="1567693729353" duration="8417000" />
+      <workItem from="1567787852936" duration="5916000" />
+      <workItem from="1567828959209" duration="268000" />
+      <workItem from="1569078137891" duration="511000" />
     </task>
     <task id="LOCAL-00001" summary="4th Change 2">
       <created>1566374287696</created>
@@ -288,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567003988700</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="5th Change">
+      <created>1567693524635</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567693524635</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +320,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Change_Initial_To_First" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -320,7 +341,13 @@
       <map>
         <entry key="Branch">
           <value>
-            <list />
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Change_Initial_To_First" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
         <entry key="User">
@@ -335,6 +362,7 @@
     <MESSAGE value="4th Change 2" />
     <MESSAGE value="4th Change 3" />
     <MESSAGE value="4th Change 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="4th Change 4" />
+    <MESSAGE value="5th Change" />
+    <option name="LAST_COMMIT_MESSAGE" value="5th Change" />
   </component>
 </project>

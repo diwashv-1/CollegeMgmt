@@ -152,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="/img/boy.png" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Student </a>
+                    <a href="#" class="d-block">{{Auth::user()->name}} </a>
                 </div>
             </div>
 
@@ -176,6 +176,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="#" class="nav-link">
                                     <i class="fas fa-circle nav-icon"></i>
                                     <p>Mail</p>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('viewAttendance')}}" class="nav-link">
+                                    <i class="fas fa-address-book nav-icon"></i>
+                                    <p>Attendance</p>
                                 </a>
                             </li>
                         </ul>

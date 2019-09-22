@@ -13,13 +13,8 @@ class LibraryController extends Controller
     public function bookIndex()
     {
 
-
         $id = staffs::staffsId();
-
         dd($id->id);
-
-
-
 
         return view('teacher.issueBooks');
 

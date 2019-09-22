@@ -2,9 +2,11 @@
 
 namespace College\Http\Controllers;
 
+use Carbon\Carbon;
 use College\Http\Requests\createStudentRequest;
 use College\Membership;
 use College\NoBookBlacklist;
+use College\Semester;
 use College\Student;
 use College\User;
 use Illuminate\Http\Request;
@@ -97,6 +99,9 @@ class studentController extends Controller
 
         //create User Registration
 
+        $current = Carbon::today('Asia/Kathmandu');
+        $update = $current->addMonth(6);
+
         if ($student) {
             User::create([
                 'name' => $request->std_name,
@@ -104,12 +109,18 @@ class studentController extends Controller
                 'password' => Hash::make($request->std_num),
                 'role_id' => 3
             ]);
+
+            Semester::create([
+               'student_id' => $student->id,
+               'semester' =>1,
+               'initialDate'=>$request->std_enro,
+                'updateDate'=>$update,
+            ]);
         }
 
         session()->flash('success', 'Student/Library Membership created Succesfully');
         return redirect('/manage');
     }
-
     /**
      * Display the specified resource.
      *
