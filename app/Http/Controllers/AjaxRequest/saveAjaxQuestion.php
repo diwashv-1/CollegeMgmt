@@ -17,7 +17,7 @@ class saveAjaxQuestion extends Controller
 
         $email = Auth::user()->email;
 
-        $teacherId = staffs::where('email', $email)->select('id',)->first();
+        $teacherId = staffs::where('email', $email)->select('id')->first();
 
         foreach ($request->tableData as $req) {
             $question = '';

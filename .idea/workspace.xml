@@ -2,34 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="546f9e43-f523-4a7d-9543-4d4bc503f5cf" name="Default Changelist" comment="5th Change">
-      <change afterPath="$PROJECT_DIR$/app/Attendance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/teacher/StudentAttendanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Semester.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_17_011902_create_semesters_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_18_065042_create_attendances_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_09_18_171900_create_attendances_table_update1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/student/viewAttendance.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/teacher/attendance.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/COllege_Mgmt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COllege_Mgmt.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/addController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/addController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/fetchLibraryDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/fetchLibraryDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/student/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/student/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/student/studentPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/student/studentPController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxQuestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxRequest/saveAjaxRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/studentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/studentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/teacher/LibraryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/teacher/LibraryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Subject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/staffs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/staffs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/administration/manageAll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/administration/manageAll.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/examination/conduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/examination/conduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/teacher.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/student/exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/student/exam.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/checkAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/checkAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/checkStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/checkStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_21_073855_create_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_073855_create_questions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/teacher/question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/question.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -58,26 +40,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>flex</find>
-      <find>prepare</find>
-      <find>scri</find>
-      <find>msgpop</find>
-      <find>savequestionAppr</find>
-      <find>fluid</find>
-      <find>sta</find>
-      <find>student</find>
-      <find>time</find>
-      <find>manage</find>
-      <find>check</find>
-      <find>fetchLibrar</find>
-      <find>saveAns</find>
-      <find>body</find>
-      <find>simple</find>
-      <find>exam</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -173,7 +135,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../school_mgmt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -248,6 +210,9 @@
       <workItem from="1567787852936" duration="5916000" />
       <workItem from="1567828959209" duration="268000" />
       <workItem from="1569078137891" duration="511000" />
+      <workItem from="1598515664611" duration="2435000" />
+      <workItem from="1598767716812" duration="66000" />
+      <workItem from="1599382693658" duration="1271000" />
     </task>
     <task id="LOCAL-00001" summary="4th Change 2">
       <created>1566374287696</created>

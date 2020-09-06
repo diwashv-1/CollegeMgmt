@@ -16,13 +16,10 @@ class checkStudent
      */
     public function handle($request, Closure $next)
     {
-
         if(Auth::user()->role_id !== 3){
 
             abort(403, 'unauthorized Access');
         }
-
-
         return $next($request);
     }
 }

@@ -9,7 +9,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import $ from 'jquery';
+window.$ = window.jQuery = $;
+
 import dt from 'datatables.net';
+
+import 'jquery-ui/ui/widgets/autocomplete.js';
 
 
 /**

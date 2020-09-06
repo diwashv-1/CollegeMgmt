@@ -119,7 +119,7 @@ class studentController extends Controller
         }
 
         session()->flash('success', 'Student/Library Membership created Succesfully');
-        return redirect('/manage');
+        return view('Admision.student');
     }
     /**
      * Display the specified resource.

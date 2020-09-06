@@ -52,9 +52,7 @@ class saveAjaxRequest extends Controller
                 goto end;
 
             } elseif ($forNoBook->countBook < 3) {
-
                 if ($bookQuantity->quantity > 0 && $bookCodes->issue < 1) {
-
                     $forNoBook->increment('countBook', 1);
                     $bookQuantity->decrement('quantity', 1);
                     $bookCodes->update(['issue' => 1]);

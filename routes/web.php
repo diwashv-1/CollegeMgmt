@@ -17,12 +17,9 @@ use College\staffs;
 Route::get('/', function () {
 
     $std = \College\Student::find(13);
-
 //    $res = $std->books()->get();*/
-
     $res = $std->issue()->get();
     dd($res);
-
     return view('welcome');
 });
 
@@ -33,6 +30,7 @@ Route::get('/logout', function () {
     Auth::logout();
     return view('auth.login');
 })->name('logout');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');

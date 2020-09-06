@@ -227,7 +227,6 @@
                         set : $('#set').val(),
                         subject : $('#selectSubject').val(),
                     },
-
                     success:function () {
 
                     $('#questionForm')[0].reset();
